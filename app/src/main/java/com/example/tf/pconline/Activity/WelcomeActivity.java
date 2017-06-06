@@ -1,4 +1,4 @@
-package com.example.tf.pconline;
+package com.example.tf.pconline.Activity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.view.Window;
+
+import com.example.tf.pconline.R;
 
 public class WelcomeActivity extends Activity {
     private Handler hd=new Handler(){

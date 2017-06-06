@@ -1,4 +1,4 @@
-package com.example.tf.pconline;
+package com.example.tf.pconline.Activity;
 
 import android.support.annotation.IdRes;
 import android.support.v4.app.Fragment;
@@ -16,6 +16,7 @@ import com.example.tf.pconline.Fragment.FragmentInfo;
 import com.example.tf.pconline.Fragment.FragmentMine;
 import com.example.tf.pconline.Fragment.FragmentOverflow;
 import com.example.tf.pconline.Fragment.FragmentProduct;
+import com.example.tf.pconline.R;
 
 import java.util.ArrayList;
 
