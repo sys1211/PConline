@@ -11,13 +11,16 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 import com.example.tf.pconline.R;
+import com.example.tf.pconline.Refresh.QQRefreshHeader;
+import com.example.tf.pconline.Refresh.RefreshLayout;
 
 /**
  * Created by fengmai on 2017/6/7.
  */
 
 public class Overflow_Suffer_Fragment extends Fragment{
-    WebView suffer_web;
+   private WebView suffer_web;
+    private RefreshLayout suffer_refreshLayout;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -26,6 +29,26 @@ public class Overflow_Suffer_Fragment extends Fragment{
         return view;
     }
     private void initwebview(View view) {
+        suffer_refreshLayout= (RefreshLayout) view.findViewById(R.id.suffer_refreshLayout);
+        if (suffer_refreshLayout != null) {
+            // 刷新状态的回调
+            suffer_refreshLayout.setRefreshListener(new RefreshLayout.OnRefreshListener() {
+                @Override
+                public void onRefresh() {
+                    // 延迟2秒后刷新成功
+                    suffer_refreshLayout.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            suffer_refreshLayout.refreshComplete();
+                            suffer_web.reload();
+                        }
+                    }, 1000);
+                }
+            });
+        }
+        QQRefreshHeader header  = new QQRefreshHeader(getActivity());
+        suffer_refreshLayout.setRefreshHeader(header);
+        suffer_refreshLayout.autoRefresh();
         String url="http://g.pconline.com.cn/best/infoapp/discovery.jsp";
         suffer_web= (WebView) view.findViewById(R.id.suffer_web);
         suffer_web.getSettings().setJavaScriptEnabled(true);

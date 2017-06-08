@@ -11,6 +11,8 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 import com.example.tf.pconline.R;
+import com.example.tf.pconline.Refresh.QQRefreshHeader;
+import com.example.tf.pconline.Refresh.RefreshLayout;
 
 /**
  * Created by fengmai on 2017/6/7.
@@ -18,6 +20,7 @@ import com.example.tf.pconline.R;
 
 public class Overflow_Treasure_Fragment extends Fragment{
     private WebView treasure_web;
+    private RefreshLayout treasure_refreshLayout;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -26,6 +29,26 @@ public class Overflow_Treasure_Fragment extends Fragment{
         return view;
     }
     private void initwebview(View view) {
+        treasure_refreshLayout= (RefreshLayout) view.findViewById(R.id.treasure_refreshLayout);
+        if (treasure_refreshLayout != null) {
+            // 刷新状态的回调
+            treasure_refreshLayout.setRefreshListener(new RefreshLayout.OnRefreshListener() {
+                @Override
+                public void onRefresh() {
+                    // 延迟2秒后刷新成功
+                    treasure_refreshLayout.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            treasure_refreshLayout.refreshComplete();
+                            treasure_web.reload();
+                        }
+                    }, 1000);
+                }
+            });
+        }
+        QQRefreshHeader header  = new QQRefreshHeader(getActivity());
+        treasure_refreshLayout.setRefreshHeader(header);
+        treasure_refreshLayout.autoRefresh();
         String url="http://g.pconline.com.cn/best/infoapp/experience.jsp";
         treasure_web= (WebView) view.findViewById(R.id.treasure_web);
         treasure_web.getSettings().setJavaScriptEnabled(true);
