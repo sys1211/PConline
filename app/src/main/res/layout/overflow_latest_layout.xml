@@ -4,18 +4,22 @@
     android:layout_height="match_parent"
     android:gravity="center"
     >
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/web_404"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="404,请点击页面重新加载..."/>
-    <Button
+    <!--<ImageView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:src="@drawable/web_404"/>-->
+    <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="404,请点击页面重新加载..."/>-->
+    <!--<Button-->
 
-        android:background="@drawable/bt_shape"
-        android:layout_width="160dp"
-        android:layout_height="30dp"
-        android:text="重新加载"/>
+        <!--android:background="@drawable/bt_shape"-->
+        <!--android:layout_width="160dp"-->
+        <!--android:layout_height="30dp"-->
+        <!--android:text="重新加载"/>-->
+    <WebView
+        android:id="@+id/latest_web"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></WebView>
 </LinearLayout>
