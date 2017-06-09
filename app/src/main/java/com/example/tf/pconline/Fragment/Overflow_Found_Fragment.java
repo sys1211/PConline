@@ -11,13 +11,16 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 import com.example.tf.pconline.R;
+import com.example.tf.pconline.Refresh.QQRefreshHeader;
+import com.example.tf.pconline.Refresh.RefreshLayout;
 
 /**
  * Created by fengmai on 2017/6/7.
  */
 
 public class Overflow_Found_Fragment extends Fragment{
-    WebView found_web;
+    private WebView found_web;
+    private RefreshLayout found_refreshLayout ;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -27,6 +30,26 @@ public class Overflow_Found_Fragment extends Fragment{
     }
 
     private void initwebview(View view) {
+        found_refreshLayout= (RefreshLayout) view.findViewById(R.id.found_refreshLayout);
+        if (found_refreshLayout != null) {
+            // 刷新状态的回调
+            found_refreshLayout.setRefreshListener(new RefreshLayout.OnRefreshListener() {
+                @Override
+                public void onRefresh() {
+                    // 延迟x秒后刷新成功
+                    found_refreshLayout.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            found_refreshLayout.refreshComplete();
+                            found_web.reload();
+                        }
+                    }, 1000);
+                }
+            });
+        }
+        QQRefreshHeader header  = new QQRefreshHeader(getActivity());
+        found_refreshLayout.setRefreshHeader(header);
+        found_refreshLayout.autoRefresh();
         String url="http://g.pconline.com.cn/best/infoapp/index.jsp";
         found_web= (WebView) view.findViewById(R.id.found_web);
         found_web.getSettings().setJavaScriptEnabled(true);

@@ -11,6 +11,8 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 import com.example.tf.pconline.R;
+import com.example.tf.pconline.Refresh.QQRefreshHeader;
+import com.example.tf.pconline.Refresh.RefreshLayout;
 
 /**
  * Created by fengmai on 2017/6/7.
@@ -18,6 +20,7 @@ import com.example.tf.pconline.R;
 
 public class Overflow_Latest_Fragment extends Fragment{
     WebView latest_web;
+    private RefreshLayout latest_refreshLayout ;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -27,6 +30,26 @@ public class Overflow_Latest_Fragment extends Fragment{
     }
 
     private void initwebview(View view) {
+        latest_refreshLayout= (RefreshLayout) view.findViewById(R.id.latest_refreshLayout);
+        if (latest_refreshLayout != null) {
+            // 刷新状态的回调
+            latest_refreshLayout.setRefreshListener(new RefreshLayout.OnRefreshListener() {
+                @Override
+                public void onRefresh() {
+                    // 延迟2秒后刷新成功
+                    latest_refreshLayout.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            latest_refreshLayout.refreshComplete();
+                            latest_web.reload();
+                        }
+                    }, 1000);
+                }
+            });
+        }
+        QQRefreshHeader header  = new QQRefreshHeader(getActivity());
+        latest_refreshLayout.setRefreshHeader(header);
+        latest_refreshLayout.autoRefresh();
         String url="http://g.pconline.com.cn/best/infoapp/haitao.jsp";
         latest_web= (WebView) view.findViewById(R.id.latest_web);
         latest_web.getSettings().setJavaScriptEnabled(true);

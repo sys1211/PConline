@@ -31,37 +31,37 @@ public class FragmentOverflow extends Fragment{
     private List<Fragment> fragments = new ArrayList<>();
     private List<String> tabs = new ArrayList<>(); //标签名称
     private ViewHolder holder;
-    private RefreshLayout refreshLayout ;
+  //  private RefreshLayout refreshLayout ;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.fragment_overflow,null);
-        refreshLayout = (RefreshLayout) view.findViewById(R.id.refreshLayout);
+     //   refreshLayout = (RefreshLayout) view.findViewById(R.id.refreshLayout);
 
         initData();
         initView(view);
         return view;
     }
     private void initData() {
-        if (refreshLayout != null) {
-            // 刷新状态的回调
-            refreshLayout.setRefreshListener(new RefreshLayout.OnRefreshListener() {
-                @Override
-                public void onRefresh() {
-                    // 延迟2秒后刷新成功
-                    refreshLayout.postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            refreshLayout.refreshComplete();
-
-                        }
-                    }, 1000);
-                }
-            });
-        }
-        QQRefreshHeader header  = new QQRefreshHeader(getActivity());
-        refreshLayout.setRefreshHeader(header);
-        refreshLayout.autoRefresh();
+//        if (refreshLayout != null) {
+//            // 刷新状态的回调
+//            refreshLayout.setRefreshListener(new RefreshLayout.OnRefreshListener() {
+//                @Override
+//                public void onRefresh() {
+//                    // 延迟2秒后刷新成功
+//                    refreshLayout.postDelayed(new Runnable() {
+//                        @Override
+//                        public void run() {
+//                            refreshLayout.refreshComplete();
+//
+//                        }
+//                    }, 1000);
+//                }
+//            });
+//        }
+//        QQRefreshHeader header  = new QQRefreshHeader(getActivity());
+//        refreshLayout.setRefreshHeader(header);
+//        refreshLayout.autoRefresh();
         tabs.add("最新" );
         tabs.add("海淘");
         tabs.add("发现");

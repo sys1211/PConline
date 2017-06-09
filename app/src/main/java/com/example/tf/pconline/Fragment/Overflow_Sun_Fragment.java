@@ -11,13 +11,16 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 import com.example.tf.pconline.R;
+import com.example.tf.pconline.Refresh.QQRefreshHeader;
+import com.example.tf.pconline.Refresh.RefreshLayout;
 
 /**
  * Created by fengmai on 2017/6/7.
  */
 
 public class Overflow_Sun_Fragment extends Fragment{
-    WebView sun_web;
+    private WebView sun_web;
+    private RefreshLayout sun_refreshLayout;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -27,6 +30,26 @@ public class Overflow_Sun_Fragment extends Fragment{
     }
 
     private void initwebview(View view) {
+        sun_refreshLayout= (RefreshLayout) view.findViewById(R.id.sun_refreshLayout);
+        if (sun_refreshLayout != null) {
+            // 刷新状态的回调
+            sun_refreshLayout.setRefreshListener(new RefreshLayout.OnRefreshListener() {
+                @Override
+                public void onRefresh() {
+                    // 延迟2秒后刷新成功
+                    sun_refreshLayout.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            sun_refreshLayout.refreshComplete();
+                            sun_web.reload();
+                        }
+                    }, 1000);
+                }
+            });
+        }
+        QQRefreshHeader header  = new QQRefreshHeader(getActivity());
+        sun_refreshLayout.setRefreshHeader(header);
+        sun_refreshLayout.autoRefresh();
         String url="http://g.pconline.com.cn/best/infoapp/shaiwu.jsp";
         sun_web= (WebView) view.findViewById(R.id.sun_web);
         sun_web.getSettings().setJavaScriptEnabled(true);
