@@ -2,7 +2,6 @@ package com.example.tf.pconline.Activity;
 
 import android.app.Activity;
 import android.content.Context;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
@@ -67,15 +66,7 @@ public class SearchActivity extends Activity {
 
     };
 
-    @Override
-    public boolean onTouchEvent(MotionEvent event) {
-        if(!imm.isActive()){
-            mweb.setVisibility(View.VISIBLE);
-        }else{
-            mweb.setVisibility(View.GONE);
-        }
-        return true;
-    }
+
 
     //    @Override
 //    public void onClick(View v) {
