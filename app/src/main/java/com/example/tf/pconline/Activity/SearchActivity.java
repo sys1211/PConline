@@ -1,11 +1,14 @@
 package com.example.tf.pconline.Activity;
 
 import android.app.Activity;
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
+import android.view.inputmethod.InputMethodManager;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.EditText;
@@ -25,7 +28,7 @@ public class SearchActivity extends Activity {
         setContentView(R.layout.activity_search);
         initview();
     }
-
+    InputMethodManager imm;
     private void initview() {
 //        img= (ImageView) findViewById(R.id.search_back_img);
         editText= (EditText) findViewById(R.id.search_edittext);
@@ -59,10 +62,22 @@ public class SearchActivity extends Activity {
 
         mweb.loadUrl(url);
         mweb.requestFocus();
+        imm= (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+
 
     };
 
-//    @Override
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        if(!imm.isActive()){
+            mweb.setVisibility(View.VISIBLE);
+        }else{
+            mweb.setVisibility(View.GONE);
+        }
+        return true;
+    }
+
+    //    @Override
 //    public void onClick(View v) {
 //
 //            mweb.setOnKeyListener(new View.OnKeyListener() {

@@ -70,9 +70,16 @@
         android:layout_height="1dp"
         android:background="#ddd"
         />
-    <WebView
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/search_web"
-        ></WebView>
+        android:id="@+id/search_fl"
+        >
+        <WebView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/search_web"
+            ></WebView>
+    </FrameLayout>
+
 </LinearLayout>
