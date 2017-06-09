@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    >
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+
+    <LinearLayout
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/channelshape"
+        android:padding="1dp"
+        android:gravity="center"
+        android:layout_margin="5dp"
+        >
+        <ImageView
+            android:id="@+id/channelimg"
+            android:layout_width="105dp"
+            android:layout_height="135dp"
+            android:src="@mipmap/ic_launcher"
+            />
+        <TextView
+            android:id="@+id/channeltv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="手机"
+            android:textColor="#000"
+            android:textSize="18sp"
+            android:paddingBottom="3dp"/>
+    </LinearLayout>
+
+        <ImageView
+            android:id="@+id/imgdelete"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/app_listview_item_delete"
+            android:layout_marginLeft="-3dp"
+            android:layout_marginTop="-4dp"/>
+    </RelativeLayout>
+</LinearLayout>

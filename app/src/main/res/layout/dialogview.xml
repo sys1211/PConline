@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="7">
+
+            <TextView
+                android:id="@+id/switchsection"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:textSize="18sp"
+                android:layout_marginLeft="10dp"
+                android:text="切换栏目"/>
+
+            <TextView
+                android:id="@+id/deletesorting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:textColor="#ff0000"
+                android:layout_marginRight="10dp"
+                android:text="删除/排序"
+                android:textSize="18sp"
+                android:layout_centerVertical="true"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+
+            <ImageView
+                android:id="@+id/dismissdialog"
+                android:layout_width="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_height="wrap_content"
+                android:src="@drawable/shrink_popuodindow"
+                android:padding="14dp"
+                />
+        </RelativeLayout>
+
+
+    </LinearLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+
+    <!--下面布局-->
+    <com.example.tf.pconline.views.CustomRecyclerView
+        android:id="@+id/dialogadd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="5dp">
+
+    </com.example.tf.pconline.views.CustomRecyclerView>
+
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:textSize="18sp"
+        android:layout_marginLeft="10dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="10dp"
+        android:text="更多栏目,点击标签来添加"/>
+
+    <com.example.tf.pconline.views.CustomGridView
+        android:id="@+id/dialogdelete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:numColumns="3"
+        android:layout_marginRight="7dp"
+        android:layout_marginLeft="7dp">
+
+    </com.example.tf.pconline.views.CustomGridView>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
