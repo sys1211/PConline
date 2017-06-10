@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">PConline</string>
+    <string name="app_name">CustomPullToRefresh</string>
+    <string name="qq_header_reset">刷新成功</string>
+    <string name="qq_header_pull">释放刷新</string>
+    <string name="qq_header_pull_over">释放刷新</string>
+    <string name="qq_header_refreshing">加载中...</string>
+    <string name="qq_header_completed">刷新成功</string>
 </resources>

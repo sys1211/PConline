@@ -177,7 +177,6 @@ public class FragmentInfo extends Fragment implements  ChannelAdapter.onclickLis
 
 
 
-
                 channelArrayList2.clear();
                 for (int i = 0; i < stringArrayList2.size(); i++) {
                     channelArrayList2.add(new Channel(null,stringArrayList2.get(i)));
