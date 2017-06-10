@@ -83,7 +83,7 @@ public class FragmentInfo extends Fragment implements  ChannelAdapter.onclickLis
         stringArrayList2.add("图赏");
         stringArrayList2.add("PCLive");
         stringArrayList2.add("手机");
-        Fragment_paihang f1 = new Fragment_paihang();
+        Fragment_ruanjian f1 = new Fragment_ruanjian();
         Fragment_paihang f2 = new Fragment_paihang();
         Fragment_zixun f3 = new Fragment_zixun();
         Fragment_pingce f4 = new Fragment_pingce();
