@@ -36,6 +36,7 @@ import java.util.ArrayList;
  * Created by TF on 2017/6/6.
  */
 
+
 public class FragmentInfo extends Fragment implements  ChannelAdapter.onclickListener,View.OnClickListener,AdapterView.OnItemClickListener{
     View v;
     private ViewPager infovp;
@@ -60,7 +61,7 @@ public class FragmentInfo extends Fragment implements  ChannelAdapter.onclickLis
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        v=inflater.inflate(R.layout.fragment_info,null);
+        v = inflater.inflate(R.layout.fragment_info, null);
         infovp = (ViewPager) v.findViewById(R.id.infovp);
         infodialog = (ImageView) v.findViewById(R.id.infodialog);
         infotablayout = (TabLayout) v.findViewById(R.id.infotablayout);
@@ -82,7 +83,7 @@ public class FragmentInfo extends Fragment implements  ChannelAdapter.onclickLis
         stringArrayList2.add("图赏");
         stringArrayList2.add("PCLive");
         stringArrayList2.add("手机");
-        Fragment_toutiao f1 = new Fragment_toutiao();
+        Fragment_paihang f1 = new Fragment_paihang();
         Fragment_paihang f2 = new Fragment_paihang();
         Fragment_zixun f3 = new Fragment_zixun();
         Fragment_pingce f4 = new Fragment_pingce();
@@ -111,20 +112,16 @@ public class FragmentInfo extends Fragment implements  ChannelAdapter.onclickLis
                 textViewdeletesorting = (TextView) view.findViewById(R.id.deletesorting);
 
 
-
-
-
                 CustomRecyclerView recyclerViewdialogadd = (CustomRecyclerView) view.findViewById(R.id.dialogadd);
                 NumClick numclick = new NumClick(numClick);
                 numClickArrayList.clear();
                 numClickArrayList.add(numclick);
                 channelArrayList.clear();
                 for (int i = 0; i < stringArrayList.size(); i++) {
-                    channelArrayList.add(new Channel(null,stringArrayList.get(i)));
+                    channelArrayList.add(new Channel(null, stringArrayList.get(i)));
                 }
-                channelAdapter = new ChannelAdapter(numClickArrayList,channelArrayList,getActivity(),FragmentInfo.this,recyclerViewdialogadd);
+                channelAdapter = new ChannelAdapter(numClickArrayList, channelArrayList, getActivity(), FragmentInfo.this, recyclerViewdialogadd);
                 textViewdeletesorting.setOnClickListener(FragmentInfo.this);
-
 
 
                 recyclerViewdialogadd.setHasFixedSize(true);
@@ -140,50 +137,34 @@ public class FragmentInfo extends Fragment implements  ChannelAdapter.onclickLis
                 helper.attachToRecyclerView(recyclerViewdialogadd);
                 //设置adapter
 
-                GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(),3);
+                GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 3);
                 recyclerViewdialogadd.setLayoutManager(gridLayoutManager);
                 recyclerViewdialogadd.setAdapter(channelAdapter);
 
                 //设置RecyclerView的每一项的点击事件
                 channelAdapter.setRecyclerViewOnItemClickListener(new ChannelAdapter.RecyclerViewOnItemClickListener() {
-                            @Override
-                            public void onItemClickListener(View view, int position) {
-                                Snackbar.make(view, "点击了：" + position, Snackbar.LENGTH_SHORT).show();
-                            }
-                        });
-                        //设置RecyclerView的每一项的长按事件
-                        channelAdapter.setOnItemLongClickListener(new ChannelAdapter .RecyclerViewOnItemLongClickListener() {
-                            @Override
-                            public boolean onItemLongClickListener(View view, int position) {
-                                Snackbar.make(view, "长按了：" + position, Snackbar.LENGTH_SHORT).show();
-                                return true;
+                    @Override
+                    public void onItemClickListener(View view, int position) {
+                        Snackbar.make(view, "点击了：" + position, Snackbar.LENGTH_SHORT).show();
+                    }
+                });
+                //设置RecyclerView的每一项的长按事件
+                channelAdapter.setOnItemLongClickListener(new ChannelAdapter.RecyclerViewOnItemLongClickListener() {
+                    @Override
+                    public boolean onItemLongClickListener(View view, int position) {
+                        Snackbar.make(view, "长按了：" + position, Snackbar.LENGTH_SHORT).show();
+                        return true;
                     }
                 });
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                 channelArrayList2.clear();
                 for (int i = 0; i < stringArrayList2.size(); i++) {
-                    channelArrayList2.add(new Channel(null,stringArrayList2.get(i)));
+                    channelArrayList2.add(new Channel(null, stringArrayList2.get(i)));
                 }
                 CustomGridView gridViewdialogadd = (CustomGridView) view.findViewById(R.id.dialogdelete);
 
-                channelGridAdapter = new ChannelGridAdapter(channelArrayList2,getActivity());
+                channelGridAdapter = new ChannelGridAdapter(channelArrayList2, getActivity());
 
                 gridViewdialogadd.setAdapter(channelGridAdapter);
 
@@ -211,7 +192,6 @@ public class FragmentInfo extends Fragment implements  ChannelAdapter.onclickLis
                 window.showAtLocation(view, Gravity.TOP, 0, 0);
 
 
-
                 //popWindow消失监听方法
                 window.setOnDismissListener(new PopupWindow.OnDismissListener() {
 
@@ -229,9 +209,7 @@ public class FragmentInfo extends Fragment implements  ChannelAdapter.onclickLis
 
             }
         });
-
         initViewPager();
-
         return v;
     }
 
@@ -244,18 +222,7 @@ public class FragmentInfo extends Fragment implements  ChannelAdapter.onclickLis
         }
 
 
-
-
-
-
-
-
-
-
-
-
-
-        infoViewPagerAdapter = new InfoViewPagerAdapter(getChildFragmentManager(),fragmentArrayList,stringArrayList);
+        infoViewPagerAdapter = new InfoViewPagerAdapter(getChildFragmentManager(), fragmentArrayList, stringArrayList);
         infovp.setAdapter(infoViewPagerAdapter);
         infotablayout.setupWithViewPager(infovp);
         //设置可以滑动
@@ -265,11 +232,11 @@ public class FragmentInfo extends Fragment implements  ChannelAdapter.onclickLis
 
     @Override
     public void onclicklistener(int postion) {
-        if (numClick%2==1) {
+        if (numClick % 2 == 1) {
 
             String s = stringArrayList.remove(postion);
             channelArrayList.remove(postion);
-            channelArrayList2.add(new Channel(null,s));
+            channelArrayList2.add(new Channel(null, s));
             stringArrayList2.add(s);
             channelAdapter.notifyItemRemoved(postion);
             channelGridAdapter.notifyDataSetChanged();
@@ -289,7 +256,7 @@ public class FragmentInfo extends Fragment implements  ChannelAdapter.onclickLis
 
     @Override
     public void onClick(View v) {
-        if (numClick%2==0) {
+        if (numClick % 2 == 0) {
             textViewdeletesorting.setText("完成");
             numClick++;
             NumClick numclick = new NumClick(numClick);
@@ -297,7 +264,7 @@ public class FragmentInfo extends Fragment implements  ChannelAdapter.onclickLis
             numClickArrayList.add(numclick);
             channelAdapter.notifyDataSetChanged();
 
-        }else{
+        } else {
             textViewdeletesorting.setText("删除/排序");
             numClick++;
             NumClick numclick = new NumClick(numClick);
@@ -309,11 +276,11 @@ public class FragmentInfo extends Fragment implements  ChannelAdapter.onclickLis
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        if (numClick%2==1) {
+        if (numClick % 2 == 1) {
             String s = stringArrayList2.remove(position);
             channelArrayList2.remove(position);
             stringArrayList.add(s);
-            channelArrayList.add(new Channel(null,s));
+            channelArrayList.add(new Channel(null, s));
             channelAdapter.notifyDataSetChanged();
             channelGridAdapter.notifyDataSetChanged();
 
@@ -325,5 +292,5 @@ public class FragmentInfo extends Fragment implements  ChannelAdapter.onclickLis
         }
 
     }
-}
 
+}

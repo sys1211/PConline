@@ -3,4 +3,64 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/paihang_rg"
+
+        >
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="三日榜"
+            android:id="@+id/radioutton1"
+            android:button="@null"
+            android:layout_weight="1"
+            android:textColor="@drawable/text_item"
+            android:background="@drawable/radiobuttondian"
+            android:gravity="center"
+            android:layout_marginLeft="20dp"
+
+
+            />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="一周榜"
+            android:id="@+id/radioutton2"
+            android:button="@null"
+            android:layout_weight="1"
+            android:textColor="@drawable/text_item"
+            android:background="@drawable/radiobuttondian"
+            android:gravity="center"
+            android:layout_marginLeft="20dp"
+            />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="半月榜"
+            android:id="@+id/radioutton3"
+            android:button="@null"
+            android:layout_weight="1"
+            android:textColor="@drawable/text_item"
+            android:background="@drawable/radiobuttondian"
+            android:gravity="center"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+        />
+
+    </RadioGroup>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/fraglayout"
+
+        >
+
+
+    </FrameLayout>
+
 </LinearLayout>
