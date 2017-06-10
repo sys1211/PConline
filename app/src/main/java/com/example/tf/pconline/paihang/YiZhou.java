@@ -1,4 +1,4 @@
-package com.example.tf.pconline.Fragment;
+package com.example.tf.pconline.paihang;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -10,20 +10,16 @@ import android.view.ViewGroup;
 import com.example.tf.pconline.R;
 
 /**
- * Created by TF on 2017/6/6.
+ * Created by Administrator on 2017/6/7.
  */
 
-public class FragmentInfo extends Fragment {
-    View v;
 
+public class YiZhou extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        v = inflater.inflate(R.layout.fragment_info, null);
 
+        View v=inflater.inflate(R.layout.yizhou,null);
         return v;
     }
 }
-
-
-

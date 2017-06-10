@@ -10,20 +10,14 @@ import android.view.ViewGroup;
 import com.example.tf.pconline.R;
 
 /**
- * Created by TF on 2017/6/6.
+ * Created by Administrator on 2017/6/7.
  */
 
-public class FragmentInfo extends Fragment {
-    View v;
-
+public class Fragment_zixun extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        v = inflater.inflate(R.layout.fragment_info, null);
-
+        View v=inflater.inflate(R.layout.fragmentzixun,null);
         return v;
     }
 }
-
-
-

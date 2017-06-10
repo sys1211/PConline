@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp">
+
+        <ImageView
+            android:id="@+id/zhiboimg"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:src="@mipmap/ic_launcher" />
+
+        <TextView
+            android:id="@+id/zhibotitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/zhiboimg"
+            android:text="欢乐颂五美适合用什么风扇"
+            android:textColor="#000"
+            android:textSize="18dp" />
+
+        <ImageView
+            android:id="@+id/ting"
+            android:layout_width="20dp"
+            android:layout_height="30dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/zhibotitle"
+            android:src="@drawable/livingtime" />
+
+        <TextView
+            android:id="@+id/livetime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/zhibotitle"
+            android:layout_marginTop="7dp"
+            android:layout_toRightOf="@id/ting"
+            android:text="time" />
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/app_login_account"
+            android:layout_below="@+id/zhibotitle"
+            android:layout_toRightOf="@+id/zhiboimg"
+            android:layout_marginLeft="52dp"
+            android:layout_marginStart="52dp"
+            android:layout_alignBottom="@+id/ting"
+            android:id="@+id/imageView" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="5.6万人围观"
+            android:layout_alignBottom="@+id/imageView"
+            android:layout_toRightOf="@+id/imageView"
+            android:layout_toEndOf="@+id/imageView"
+            android:layout_alignTop="@+id/livetime" />
+    </RelativeLayout>
+</LinearLayout>
