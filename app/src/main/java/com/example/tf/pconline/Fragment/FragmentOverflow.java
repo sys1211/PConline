@@ -1,6 +1,5 @@
 package com.example.tf.pconline.Fragment;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
@@ -8,15 +7,12 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.tf.pconline.R;
-import com.example.tf.pconline.Refresh.QQRefreshHeader;
-import com.example.tf.pconline.Refresh.RefreshLayout;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,6 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:background="#25a3eb"
+        >
+
+            <android.support.design.widget.TabLayout
+                android:id="@+id/infotablayout"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                app:tabIndicatorHeight="0dp"
+                app:tabSelectedTextColor="#fff"
+                app:tabTextAppearance="@style/TabLayoutTextStyle"
+                app:tabTextColor="#ccc"
+                android:layout_weight="7"
+
+
+                />
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+            <ImageView
+                android:id="@+id/infodialog"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@drawable/car_vs_more"
+                android:padding="14dp"/>
+
+        </RelativeLayout>
+
+
+
+    </LinearLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/infovp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></android.support.v4.view.ViewPager>
 
 </LinearLayout>

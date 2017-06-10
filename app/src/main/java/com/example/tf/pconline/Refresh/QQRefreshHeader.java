@@ -1,6 +1,7 @@
 package com.example.tf.pconline.Refresh;
 
 import android.content.Context;
+import android.graphics.drawable.AnimationDrawable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.Animation;
@@ -24,7 +25,7 @@ public class QQRefreshHeader extends FrameLayout implements RefreshHeader {
  //   private View arrowIcon;
     private View successIcon;
     private View loadingIcon;
-
+    AnimationDrawable drawable;
     public QQRefreshHeader(Context context) {
         this(context, null);
     }
@@ -43,16 +44,18 @@ public class QQRefreshHeader extends FrameLayout implements RefreshHeader {
        // arrowIcon = findViewById(R.id.arrowIcon);
         successIcon = findViewById(R.id.successIcon);
         loadingIcon = findViewById(R.id.loadingIcon);
+
     }
 
     @Override
     public void reset() {
         textView.setText(getResources().getText(R.string.qq_header_reset));
-        successIcon.setVisibility(INVISIBLE);
+     //   successIcon.setVisibility(INVISIBLE);
     //    arrowIcon.setVisibility(VISIBLE);
     //    arrowIcon.clearAnimation();
-        loadingIcon.setVisibility(INVISIBLE);
-        loadingIcon.clearAnimation();
+
+      //  loadingIcon.clearAnimation();
+        drawable.stop();
     }
 
     @Override
@@ -66,7 +69,10 @@ public class QQRefreshHeader extends FrameLayout implements RefreshHeader {
         loadingIcon.setVisibility(VISIBLE);
         textView.setText(getResources().getText(R.string.qq_header_refreshing));
      //   arrowIcon.clearAnimation();
-        loadingIcon.startAnimation(rotate_infinite);
+        //loadingIcon.startAnimation(drawable);
+        drawable = (AnimationDrawable) loadingIcon.getBackground();
+        drawable.setOneShot(false);//设置动画只播放一次
+        drawable.start();
     }
 
     @Override
@@ -91,8 +97,9 @@ public class QQRefreshHeader extends FrameLayout implements RefreshHeader {
     @Override
     public void complete() {
         loadingIcon.setVisibility(INVISIBLE);
-        loadingIcon.clearAnimation();
-        successIcon.setVisibility(VISIBLE);
+      //  loadingIcon.clearAnimation();
+      //  successIcon.setVisibility(VISIBLE);
         textView.setText(getResources().getText(R.string.qq_header_completed));
+        drawable.stop();
     }
 }
