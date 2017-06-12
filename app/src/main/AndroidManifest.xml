@@ -2,7 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.tf.pconline">
     <uses-permission android:name="android.permission.INTERNET"/>
+
     <uses-permission android:name="android.permission.VIBRATE" />
+
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -27,13 +31,14 @@
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
             ></activity>
-
-        <activity android:name=".Activitys.EnterActivity"
-            android:screenOrientation="portrait"/>
-
-        <activity android:name=".Activitys.DengLu_Activity"
-            android:screenOrientation="portrait"/>
-
+        <activity android:name=".Activitys.EnterActivity"/>
+        <activity android:name=".Activitys.DengLu_Activity"/>
+        <activity android:name=".Activitys.AboutUs"/>
+        <activity android:name=".Activitys.Fonts"/>
+        <activity android:name=".Activitys.Wifi"/>
+        <activity android:name=".Activitys.Line"/>
+        <activity android:name=".Activitys.Share"/>
+        <activity android:name=".Activitys.Collect"/>
     </application>
 
 </manifest>

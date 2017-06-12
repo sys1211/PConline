@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#25a3eb"
+        >
+        <ImageView
+            android:id="@+id/collectfush"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/app_back_white"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="个人收藏"
+            android:textColor="#fff"
+            android:textSize="20sp"
+            android:layout_centerInParent="true"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:text="编辑"
+            android:layout_marginRight="20dp"
+            android:textSize="16sp"
+            android:textColor="#fff"
+            />
+    </RelativeLayout>
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tab_FindFragment_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_FindFragment_pager"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        />
+</LinearLayout>
