@@ -19,11 +19,10 @@ import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
-
-import com.example.tf.pconline.R;
 import com.example.tf.pconline.adapters.ChannelAdapter;
-import com.example.tf.pconline.adapters.ChannelGridAdapter;
 import com.example.tf.pconline.adapters.InfoViewPagerAdapter;
+import com.example.tf.pconline.adapters.ChannelGridAdapter;
+import com.example.tf.pconline.R;
 import com.example.tf.pconline.domain.Channel;
 import com.example.tf.pconline.domain.NumClick;
 import com.example.tf.pconline.helper.ItemDragHelperCallback;
