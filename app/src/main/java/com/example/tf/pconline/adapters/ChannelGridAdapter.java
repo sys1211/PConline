@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.example.tf.pconline.R;
 import com.example.tf.pconline.domain.Channel;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -62,7 +63,17 @@ public class ChannelGridAdapter extends BaseAdapter{
         Channel channel = channelArrayList.get(position);
         vh.textView.setText(channel.getName());
         vh.imgdelete.setVisibility(View.GONE);
-        vh.imageView.setImageResource(R.mipmap.ic_launcher);
+
+
+
+        Picasso.with(context)
+                .load(channel.getImgUrl())
+                .error(R.mipmap.ic_launcher)
+                .into( vh.imageView);
+
+
+
+
         return convertView;
     }
 

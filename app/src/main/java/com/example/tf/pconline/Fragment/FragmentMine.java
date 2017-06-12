@@ -13,6 +13,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.tf.pconline.Activitys.DengLu_Activity;
 import com.example.tf.pconline.Activitys.EnterActivity;
 import com.example.tf.pconline.R;
 import com.example.tf.pconline.Tools.CircleImageView;
@@ -88,6 +89,8 @@ public class FragmentMine extends Fragment implements View.OnClickListener {
                 break;
             case R.id.item8:
                 Toast.makeText(getActivity(),"帮助与反馈",Toast.LENGTH_LONG).show();
+                Intent intent1 = new Intent(getActivity(), DengLu_Activity.class);
+                startActivity(intent1);
                 break;
             case R.id.item7:
                 Toast.makeText(getActivity(),"每日任务",Toast.LENGTH_LONG).show();
@@ -100,9 +103,12 @@ public class FragmentMine extends Fragment implements View.OnClickListener {
                 break;
             case R.id.item4:
                 Toast.makeText(getActivity(),"福利资源哪里下载？",Toast.LENGTH_LONG).show();
+
                 break;
             case R.id.entertv1:
                 Toast.makeText(getActivity(),"登录",Toast.LENGTH_LONG).show();
+                Intent intent2 = new Intent(getActivity(), DengLu_Activity.class);
+                startActivity(intent2);
                 break;
             case R.id.entertv2:
                 Toast.makeText(getActivity(),"登录",Toast.LENGTH_LONG).show();
@@ -124,6 +130,8 @@ public class FragmentMine extends Fragment implements View.OnClickListener {
                 break;
             case R.id.enterimv:
                 Toast.makeText(getActivity(),"登录",Toast.LENGTH_LONG).show();
+                Intent intent3 = new Intent(getActivity(), DengLu_Activity.class);
+                startActivity(intent3);
                 break;
             case R.id.switchry:
                 Toast.makeText(getActivity(),"日/夜间模式",Toast.LENGTH_LONG).show();

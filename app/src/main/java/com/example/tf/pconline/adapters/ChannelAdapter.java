@@ -1,6 +1,8 @@
 package com.example.tf.pconline.adapters;
 
+import android.app.Service;
 import android.content.Context;
+import android.os.Vibrator;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +16,7 @@ import com.example.tf.pconline.domain.NumClick;
 import com.example.tf.pconline.helper.OnDragVHListener;
 import com.example.tf.pconline.helper.OnItemMoveListener;
 import com.example.tf.pconline.views.CustomRecyclerView;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -62,7 +65,15 @@ public class ChannelAdapter extends RecyclerView.Adapter<ChannelAdapter.MyViewHo
     public void onBindViewHolder(MyViewHolder holder, int position) {
         Channel channel = channelArrayList.get(position);
         holder.textView.setText(channel.getName());
-        holder.imageView.setImageResource(R.mipmap.ic_launcher);
+
+
+        Picasso.with(context)
+                .load(channel.getImgUrl())
+                .error(R.mipmap.ic_launcher)
+                .into(holder.imageView);
+
+
+
         holder.itemView.setTag(position);
         NumClick numClick = numClickArrayList.get(0);
         if (numClick.getNum()%2==0) {
@@ -154,13 +165,14 @@ public class ChannelAdapter extends RecyclerView.Adapter<ChannelAdapter.MyViewHo
         TextView textView;
         ImageView imageView,imgdelete;
         private View itemView;
+        private Vibrator  mVibrator;
         public MyViewHolder(View itemView) {
             super(itemView);
             this.itemView = itemView;
             imageView = (ImageView) itemView.findViewById(R.id.channelimg);
             textView = (TextView) itemView.findViewById(R.id.channeltv);
             imgdelete = (ImageView) itemView.findViewById(R.id.imgdelete);
-
+            mVibrator = (Vibrator) ChannelAdapter.this.context.getSystemService(Service.VIBRATOR_SERVICE);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -171,6 +183,10 @@ public class ChannelAdapter extends RecyclerView.Adapter<ChannelAdapter.MyViewHo
             itemView.setOnLongClickListener(new View.OnLongClickListener() {
                 @Override
                 public boolean onLongClick(View view) {
+
+
+
+                    mVibrator.vibrate(new long[]{10, 200, 0, 0}, -1);
                     int postion=recyclerView.getChildPosition(view);
                     onclickListener.onclicklonglistener(postion);
                     return true;

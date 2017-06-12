@@ -21,6 +21,7 @@
         <ImageView
             android:id="@+id/channelimg"
             android:layout_width="105dp"
+            android:scaleType="fitXY"
             android:layout_height="135dp"
             android:src="@mipmap/ic_launcher"
             />

@@ -3,12 +3,12 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
     <com.example.tf.pconline.Refresh.RefreshLayout
-        android:id="@+id/pb_refreshlayout"
+        android:id="@+id/bjb_refreshlayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <ListView
-            android:id="@+id/pingbanList"
+            android:id="@+id/bijibenList"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 

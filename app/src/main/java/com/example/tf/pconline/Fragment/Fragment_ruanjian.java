@@ -13,9 +13,17 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.tf.pconline.Adapter.RJListAdapter;
 import com.example.tf.pconline.R;
 import com.example.tf.pconline.Refresh.QQRefreshHeader;
 import com.example.tf.pconline.Refresh.RefreshLayout;
+import com.example.tf.pconline.domain.Channel;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 
 /**
  * Created by le on 2017/6/10.
@@ -23,7 +31,7 @@ import com.example.tf.pconline.Refresh.RefreshLayout;
 
 public class Fragment_ruanjian extends Fragment{
     private ListView ruanjianList;
-
+    private ArrayList<Channel> datelist;
 
     private RefreshLayout found_refreshLayout ;
 
@@ -34,7 +42,7 @@ public class Fragment_ruanjian extends Fragment{
         View view = inflater.inflate(R.layout.fragment_ruanjian,null);
 
         ruanjianList = (ListView) view.findViewById(R.id.ruanjianList);
-
+        datelist=new ArrayList<>();
         found_refreshLayout= (RefreshLayout) view.findViewById(R.id.rj_refreshlayout);
         initwebview();
 
@@ -49,7 +57,16 @@ public class Fragment_ruanjian extends Fragment{
         StringRequest stringRequest = new StringRequest("http://mrobot.pconline.com.cn/v2/cms/channels/1000?pageNo=0", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-
+                try {
+                    JSONObject jo1=new JSONObject(response);
+                    JSONArray ja=jo1.getJSONArray("articleList");
+                    for(int i=0;i<ja.length();i++){
+                        JSONObject jo2= ja.getJSONObject(i);
+                        datelist.add(new Channel(jo2.getString("image"),jo2.getString("title")));
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
         }, new Response.ErrorListener() {
             @Override
@@ -59,7 +76,7 @@ public class Fragment_ruanjian extends Fragment{
         });
 
         requestQueue.add(stringRequest);
-
+        ruanjianList.setAdapter(new RJListAdapter(getContext(),datelist));
 
 
     }

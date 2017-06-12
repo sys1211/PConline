@@ -66,6 +66,7 @@ public class FragmentInfo extends Fragment implements  ChannelAdapter.onclickLis
         infovp = (ViewPager) v.findViewById(R.id.infovp);
         infodialog = (ImageView) v.findViewById(R.id.infodialog);
         infotablayout = (TabLayout) v.findViewById(R.id.infotablayout);
+
         channelArrayList = new ArrayList<>();
         channelArrayList2 = new ArrayList<>();
         tparrayList = new ArrayList<>();
@@ -76,59 +77,53 @@ public class FragmentInfo extends Fragment implements  ChannelAdapter.onclickLis
         tpArrayList = new ArrayList<>();
         numClickArrayList = new ArrayList<>();
 
-        stringArrayList.add("头条");
-        stringArrayList.add("评测");
+    //    stringArrayList.add("头条");
+    //    stringArrayList.add("评测");
         stringArrayList.add("图赏");
-        stringArrayList.add("汽车科技");
+     //   stringArrayList.add("汽车科技");
         stringArrayList.add("笔记本");
-        stringArrayList.add("相机");
+      //  stringArrayList.add("相机");
 
-        tparrayList.add("http://img1.imgtn.bdimg.com/it/u=1042240748,3632976597&fm=26&gp=0.jpg");
-        tparrayList.add("http://a.cphotos.bdimg.com/timg?image&quality=100&size=b4000_4000&sec=1497231566&di=fbacee949761d69e41f634f84c085b2b&src=http://pic.58pic.com/58pic/15/57/50/37Y58PICuiA_1024.jpg");
+    //    tparrayList.add("http://img1.imgtn.bdimg.com/it/u=1042240748,3632976597&fm=26&gp=0.jpg");
+     //   tparrayList.add("http://a.cphotos.bdimg.com/timg?image&quality=100&size=b4000_4000&sec=1497231566&di=fbacee949761d69e41f634f84c085b2b&src=http://pic.58pic.com/58pic/15/57/50/37Y58PICuiA_1024.jpg");
         tparrayList.add("http://image.uczzd.cn/5395247793689066564.jpeg?id=0&from=export");
-        tparrayList.add("http://a.cphotos.bdimg.com/timg?image&quality=100&size=b4000_4000&sec=1497231201&di=f3782e198c46e86a2cdcbd05d69e3f5d&src=http://img2.pcpop.com/ArticleImages/0x0/1/1110/001110325.jpg");
+     //   tparrayList.add("http://a.cphotos.bdimg.com/timg?image&quality=100&size=b4000_4000&sec=1497231201&di=f3782e198c46e86a2cdcbd05d69e3f5d&src=http://img2.pcpop.com/ArticleImages/0x0/1/1110/001110325.jpg");
         tparrayList.add("http://a.cphotos.bdimg.com/timg?image&quality=100&size=b4000_4000&sec=1497231277&di=1cc123ead884f7c402bed6facf471b0b&src=http://a3.att.hudong.com/52/80/300001062059132391805762483.jpg");
-        tparrayList.add("http://img1.imgtn.bdimg.com/it/u=66057657,396234550&fm=26&gp=0.jpg");
+      //  tparrayList.add("http://img1.imgtn.bdimg.com/it/u=66057657,396234550&fm=26&gp=0.jpg");
 
         stringArrayList2.add("平板");
-        stringArrayList2.add("无人机");
+      //  stringArrayList2.add("无人机");
         stringArrayList2.add("DIY外设");
         stringArrayList2.add("软件");
 
         tpArrayList.add("http://a.cphotos.bdimg.com/timg?image&quality=100&size=b4000_4000&sec=1497231580&di=ea77c244c73f10cdea86cb7763c8403a&src=http://img.sc115.com/uploads/allimg/110503/20110503173229289.jpg");
-        tpArrayList.add("http://a.cphotos.bdimg.com/timg?image&quality=100&size=b4000_4000&sec=1497231598&di=f334ff09a8b9f5c5b000c4bd4460c7e3&src=http://img01.taopic.com/160605/240390-16060509293361.jpg");
+     //   tpArrayList.add("http://a.cphotos.bdimg.com/timg?image&quality=100&size=b4000_4000&sec=1497231598&di=f334ff09a8b9f5c5b000c4bd4460c7e3&src=http://img01.taopic.com/160605/240390-16060509293361.jpg");
         tpArrayList.add("http://i0.sinaimg.cn/IT/cr/2009/1009/2463590077.jpg");
         tpArrayList.add("http://a.cphotos.bdimg.com/timg?image&quality=100&size=b4000_4000&sec=1497231652&di=daffd4225c24eba0e5ff53d637385126&src=http://imgb.zol.com.cn/mobile_soft/ms_42/sogWjTzGslHXA.jpg");
 
+      //  Fragment_toutiao f1 = new Fragment_toutiao();
+      //  com.example.tf.pconline.pingce.Fragment_pingce f2 = new com.example.tf.pconline.pingce.Fragment_pingce();
+        Fragment_tushang f3 = new Fragment_tushang();
+      //  Fragment_qichekeji f4 = new Fragment_qichekeji();
+        Fragment__bijiben f5 = new Fragment__bijiben();
+      //  Fragment__xiangji f6 = new Fragment__xiangji();
 
-
-
-
-
-
-
-
-        Fragment_tushang f1 = new Fragment_tushang();
-        Fragment_paihang f2 = new Fragment_paihang();
-        Fragment_zixun f3 = new Fragment_zixun();
-        Fragment_pingce f4 = new Fragment_pingce();
-
-
-        fragmentArrayList.add(f1);
-        fragmentArrayList.add(f2);
+     //   fragmentArrayList.add(f1);
+      //  fragmentArrayList.add(f2);
         fragmentArrayList.add(f3);
-        fragmentArrayList.add(f4);
+     //   fragmentArrayList.add(f4);
+        fragmentArrayList.add(f5);
+     //   fragmentArrayList.add(f6);
 
+        Fragment__pingban f7 = new Fragment__pingban();
+     //   Fragment_Pc f8 = new Fragment_Pc();
+        Fragment_DIYwaishe f9 = new Fragment_DIYwaishe();
+        Fragment_ruanjian f10 = new Fragment_ruanjian();
 
-
-
-        Fragment_tushang f5 = new Fragment_tushang();
-        Fragment_Pc f6 = new Fragment_Pc();
-        Fragment_shouji f7 = new Fragment_shouji();
-
-        fragmentArrayList2.add(f5);
-        fragmentArrayList2.add(f6);
         fragmentArrayList2.add(f7);
+      //  fragmentArrayList2.add(f8);
+        fragmentArrayList2.add(f9);
+        fragmentArrayList2.add(f10);
 
         infodialog.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -147,7 +142,7 @@ public class FragmentInfo extends Fragment implements  ChannelAdapter.onclickLis
                 numClickArrayList.add(numclick);
                 channelArrayList.clear();
                 for (int i = 0; i < stringArrayList.size(); i++) {
-                    channelArrayList.add(new Channel(null, stringArrayList.get(i)));
+                    channelArrayList.add(new Channel(tparrayList.get(i), stringArrayList.get(i)));
                 }
                 channelAdapter = new ChannelAdapter(numClickArrayList, channelArrayList, getActivity(), FragmentInfo.this, recyclerViewdialogadd);
                 textViewdeletesorting.setOnClickListener(FragmentInfo.this);
@@ -189,7 +184,7 @@ public class FragmentInfo extends Fragment implements  ChannelAdapter.onclickLis
 
                 channelArrayList2.clear();
                 for (int i = 0; i < stringArrayList2.size(); i++) {
-                    channelArrayList2.add(new Channel(null, stringArrayList2.get(i)));
+                    channelArrayList2.add(new Channel(tpArrayList.get(i), stringArrayList2.get(i)));
                 }
                 CustomGridView gridViewdialogadd = (CustomGridView) view.findViewById(R.id.dialogdelete);
 
@@ -261,11 +256,12 @@ public class FragmentInfo extends Fragment implements  ChannelAdapter.onclickLis
 
     @Override
     public void onclicklistener(int postion) {
-        if (numClick % 2 == 1) {
-
+        if (numClick % 2 == 1 && postion!=0) {
+            String ss = tparrayList.remove(postion);
             String s = stringArrayList.remove(postion);
             channelArrayList.remove(postion);
-            channelArrayList2.add(new Channel(null, s));
+            tpArrayList.add(ss);
+            channelArrayList2.add(new Channel(ss, s));
             stringArrayList2.add(s);
             channelAdapter.notifyItemRemoved(postion);
             channelGridAdapter.notifyDataSetChanged();
@@ -306,10 +302,13 @@ public class FragmentInfo extends Fragment implements  ChannelAdapter.onclickLis
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         if (numClick % 2 == 1) {
+
+            String ss = tpArrayList.remove(position);
+            tparrayList.add(ss);
             String s = stringArrayList2.remove(position);
             channelArrayList2.remove(position);
             stringArrayList.add(s);
-            channelArrayList.add(new Channel(null, s));
+            channelArrayList.add(new Channel(ss, s));
             channelAdapter.notifyDataSetChanged();
             channelGridAdapter.notifyDataSetChanged();
 
