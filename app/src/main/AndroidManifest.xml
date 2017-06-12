@@ -26,8 +26,13 @@
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
             ></activity>
+
         <activity android:name=".Activitys.EnterActivity"
             android:screenOrientation="portrait"/>
+
+        <activity android:name=".Activitys.DengLu_Activity"
+            android:screenOrientation="portrait"/>
+
     </application>
 
 </manifest>
