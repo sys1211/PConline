@@ -55,7 +55,8 @@ public class FragmentInfo extends Fragment implements  ChannelAdapter.onclickLis
     private ChannelAdapter channelAdapter;
     //,"平板","DIY外设","智能硬件","无人机","智能家电","软件","网络圈","导购","相机","企业圈","直播","汽车科技","视频", "笔记本"
 
-
+    private ArrayList<String> tparrayList;
+    private ArrayList<String> tpArrayList;
 
     private ChannelGridAdapter channelGridAdapter;
     @Nullable
@@ -67,35 +68,63 @@ public class FragmentInfo extends Fragment implements  ChannelAdapter.onclickLis
         infotablayout = (TabLayout) v.findViewById(R.id.infotablayout);
         channelArrayList = new ArrayList<>();
         channelArrayList2 = new ArrayList<>();
-
+        tparrayList = new ArrayList<>();
         fragmentArrayList = new ArrayList<>();
         stringArrayList = new ArrayList<>();
         fragmentArrayList2 = new ArrayList<>();
         stringArrayList2 = new ArrayList<>();
-
+        tpArrayList = new ArrayList<>();
         numClickArrayList = new ArrayList<>();
 
         stringArrayList.add("头条");
-        stringArrayList.add("排行榜");
-        stringArrayList.add("资讯");
         stringArrayList.add("评测");
+        stringArrayList.add("图赏");
+        stringArrayList.add("汽车科技");
+        stringArrayList.add("笔记本");
+        stringArrayList.add("相机");
 
-        stringArrayList2.add("图赏");
-        stringArrayList2.add("PCLive");
-        stringArrayList2.add("手机");
-        Fragment_ruanjian f1 = new Fragment_ruanjian();
+        tparrayList.add("http://img1.imgtn.bdimg.com/it/u=1042240748,3632976597&fm=26&gp=0.jpg");
+        tparrayList.add("http://a.cphotos.bdimg.com/timg?image&quality=100&size=b4000_4000&sec=1497231566&di=fbacee949761d69e41f634f84c085b2b&src=http://pic.58pic.com/58pic/15/57/50/37Y58PICuiA_1024.jpg");
+        tparrayList.add("http://image.uczzd.cn/5395247793689066564.jpeg?id=0&from=export");
+        tparrayList.add("http://a.cphotos.bdimg.com/timg?image&quality=100&size=b4000_4000&sec=1497231201&di=f3782e198c46e86a2cdcbd05d69e3f5d&src=http://img2.pcpop.com/ArticleImages/0x0/1/1110/001110325.jpg");
+        tparrayList.add("http://a.cphotos.bdimg.com/timg?image&quality=100&size=b4000_4000&sec=1497231277&di=1cc123ead884f7c402bed6facf471b0b&src=http://a3.att.hudong.com/52/80/300001062059132391805762483.jpg");
+        tparrayList.add("http://img1.imgtn.bdimg.com/it/u=66057657,396234550&fm=26&gp=0.jpg");
+
+        stringArrayList2.add("平板");
+        stringArrayList2.add("无人机");
+        stringArrayList2.add("DIY外设");
+        stringArrayList2.add("软件");
+
+        tpArrayList.add("http://a.cphotos.bdimg.com/timg?image&quality=100&size=b4000_4000&sec=1497231580&di=ea77c244c73f10cdea86cb7763c8403a&src=http://img.sc115.com/uploads/allimg/110503/20110503173229289.jpg");
+        tpArrayList.add("http://a.cphotos.bdimg.com/timg?image&quality=100&size=b4000_4000&sec=1497231598&di=f334ff09a8b9f5c5b000c4bd4460c7e3&src=http://img01.taopic.com/160605/240390-16060509293361.jpg");
+        tpArrayList.add("http://i0.sinaimg.cn/IT/cr/2009/1009/2463590077.jpg");
+        tpArrayList.add("http://a.cphotos.bdimg.com/timg?image&quality=100&size=b4000_4000&sec=1497231652&di=daffd4225c24eba0e5ff53d637385126&src=http://imgb.zol.com.cn/mobile_soft/ms_42/sogWjTzGslHXA.jpg");
+
+
+
+
+
+
+
+
+
+        Fragment_tushang f1 = new Fragment_tushang();
         Fragment_paihang f2 = new Fragment_paihang();
         Fragment_zixun f3 = new Fragment_zixun();
         Fragment_pingce f4 = new Fragment_pingce();
 
-        Fragment_tushang f5 = new Fragment_tushang();
-        Fragment_Pc f6 = new Fragment_Pc();
-        Fragment_shouji f7 = new Fragment_shouji();
 
         fragmentArrayList.add(f1);
         fragmentArrayList.add(f2);
         fragmentArrayList.add(f3);
         fragmentArrayList.add(f4);
+
+
+
+
+        Fragment_tushang f5 = new Fragment_tushang();
+        Fragment_Pc f6 = new Fragment_Pc();
+        Fragment_shouji f7 = new Fragment_shouji();
 
         fragmentArrayList2.add(f5);
         fragmentArrayList2.add(f6);

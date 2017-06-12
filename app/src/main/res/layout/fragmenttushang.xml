@@ -2,14 +2,94 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <com.example.tf.pconline.Refresh.RefreshLayout
-        android:id="@+id/ts_refreshlayout"
+
+    <HorizontalScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:scrollbars="none"
+        android:layout_height="50dp">
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/tsrb1"
+                android:layout_width="75dp"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:button="@null"
+                android:background="@drawable/rbbg"
+                android:text="科技数码"/>
+
+            <RadioButton
+                android:id="@+id/tsrb2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:background="@drawable/rbbg"
+                android:button="@null"
+                android:text="生活"/>
+
+            <RadioButton
+                android:id="@+id/tsrb3"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:background="@drawable/rbbg"
+                android:button="@null"
+                android:text="人像"/>
+
+            <RadioButton
+                android:id="@+id/tsrb4"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:background="@drawable/rbbg"
+                android:button="@null"
+                android:text="风光"/>
+
+            <RadioButton
+                android:id="@+id/tsrb5"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:background="@drawable/rbbg"
+                android:button="@null"
+                android:text="纪实"/>
+
+            <RadioButton
+                android:id="@+id/tsrb6"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+      android:gravity="center"
+                android:background="@drawable/rbbg"
+                android:button="@null"
+                android:text="生态"/>
+
+
+
+        </RadioGroup>
+
+    </HorizontalScrollView>
 
 
 
 
+        <FrameLayout
+            android:id="@+id/tsfm"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        </com.example.tf.pconline.Refresh.RefreshLayout>
+        </FrameLayout>
+
+
+
+
 </LinearLayout>

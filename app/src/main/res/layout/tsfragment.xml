@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.example.tf.pconline.Refresh.RefreshLayout
+        android:id="@+id/ts_refreshlayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+    <ListView
+        android:id="@+id/tslist"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </ListView>
+    </com.example.tf.pconline.Refresh.RefreshLayout>
+</LinearLayout>
