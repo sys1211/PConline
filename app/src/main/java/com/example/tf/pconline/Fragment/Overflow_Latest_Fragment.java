@@ -50,6 +50,12 @@ public class Overflow_Latest_Fragment extends Fragment{
         QQRefreshHeader header  = new QQRefreshHeader(getActivity());
         latest_refreshLayout.setRefreshHeader(header);
         latest_refreshLayout.autoRefresh();
+
+
+
+
+
+
         String url="http://g.pconline.com.cn/best/infoapp/haitao.jsp";
         latest_web= (WebView) view.findViewById(R.id.latest_web);
         latest_web.getSettings().setJavaScriptEnabled(true);

@@ -14,6 +14,7 @@
         android:textColor="#797272"
         tools:text="下拉刷新"
         />
+
     <View
         android:id="@+id/successIcon"
         android:visibility="invisible"
@@ -37,9 +38,10 @@
 
     <ImageView
         android:id="@+id/loadingIcon"
-        android:layout_width="35dp"
-        android:layout_height="15dp"
-        android:src="@drawable/gpt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:background="@drawable/frame_bg"
         android:scaleType="fitCenter"
         android:visibility="invisible"
         android:layout_centerVertical="true"
