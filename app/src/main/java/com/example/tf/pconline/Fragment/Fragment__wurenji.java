@@ -14,36 +14,35 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-
-import com.example.tf.pconline.Datas.QiCheKeJi;
+import com.example.tf.pconline.Datas.WurenJ;
 import com.example.tf.pconline.R;
 import com.example.tf.pconline.Refresh.QQRefreshHeader;
 import com.example.tf.pconline.Refresh.RefreshLayout;
-import com.example.tf.pconline.adapters.QichiKejiAdapter;
+import com.example.tf.pconline.adapters.WuRenJAdapter;
 
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
 
 /**
- * Created by Administrator on 2017/6/9.
+ * Created by Administrator on 2017/6/10.
  */
 
-public class Fragment_qichekeji extends Fragment{
+public class Fragment__wurenji extends Fragment {
 
     private ListView listViewpc;
-    private QichiKejiAdapter qckjadapter;
-    private RefreshLayout found_refreshLayout ;
-    private ArrayList<QiCheKeJi> arrayList;
+    private WuRenJAdapter wuRenJAdapter;
+    private ArrayList<WurenJ> arrayList;
+    private RefreshLayout found_refreshLayout;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v=inflater.inflate(R.layout.fragment__qichekeji,null);
-        listViewpc= (ListView) v.findViewById(R.id.qichekejilist);
-        found_refreshLayout= (RefreshLayout) v.findViewById(R.id.qckj_refreshlayout);
+        View v=inflater.inflate(R.layout.fragment__wurenji,null);
+        listViewpc= (ListView) v.findViewById(R.id.wrjlist);
+        found_refreshLayout= (RefreshLayout) v.findViewById(R.id.wrj_refreshlayout);
+
 
         if (found_refreshLayout != null) {
             // 刷新状态的回调
@@ -57,7 +56,7 @@ public class Fragment_qichekeji extends Fragment{
                             found_refreshLayout.refreshComplete();
 
                         }
-                    }, 1000);
+                    }, 1500);
                 }
             });
         }
@@ -65,9 +64,11 @@ public class Fragment_qichekeji extends Fragment{
         found_refreshLayout.setRefreshHeader(header);
         found_refreshLayout.autoRefresh();
 
+
+
         arrayList=new ArrayList<>();
         RequestQueue mQueue = Volley.newRequestQueue(getContext());
-        StringRequest stringRequest = new StringRequest("http://mrobot.pconline.com.cn/v2/cms/channels/14?pageNo=",
+        StringRequest stringRequest = new StringRequest("http://mrobot.pconline.com.cn/v2/cms/channels/4?pageNo=",
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -75,15 +76,9 @@ public class Fragment_qichekeji extends Fragment{
                         JSONObject jsonObject= null;
                         try {
                             jsonObject = new JSONObject(aa);
-                            JSONArray jsonarray=jsonObject.getJSONArray("articleList");
-                            for (int i = 0; i <jsonarray.length() ; i++) {
-                                JSONObject jsonobject=jsonarray.getJSONObject(i);
-                                String title=jsonobject.getString("channel");
-                                String Message=jsonobject.getString("summary");
-                                String Image=jsonobject.getString("image");
-                                arrayList.add(new QiCheKeJi(Image,title,Message));
-                            }
-                            //       arrayList.add(new XiangJ());
+                            JSONObject jsonObject1=jsonObject.getJSONObject("");
+
+//                            arrayList.add(new WurenJ());
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -98,9 +93,10 @@ public class Fragment_qichekeji extends Fragment{
             }
         });
         mQueue.add(stringRequest);
-        qckjadapter=new QichiKejiAdapter(getContext(),arrayList);
-        listViewpc.setAdapter(qckjadapter);
+        wuRenJAdapter=new WuRenJAdapter(getContext(),arrayList);
+        listViewpc.setAdapter(wuRenJAdapter);
+
+
         return v;
     }
-
 }
