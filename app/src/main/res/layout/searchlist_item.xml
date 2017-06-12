@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="10dp"
+    android:background="#F4F5F7">
+
+    <ImageView
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="30dp"
+        android:src="@drawable/product_category_logo_business_office_default"
+        android:id="@+id/leftlistimg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="15dp"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:textSize="16sp"
+            android:textColor="#020403"
+            android:id="@+id/leftlistup"
+            android:text="超极本"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/leftlistbelow"
+            android:text="联想 华硕 索尼"
+            android:layout_width="wrap_content"
+            android:textSize="12sp"
+            android:textColor="#6F7170"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</LinearLayout>
