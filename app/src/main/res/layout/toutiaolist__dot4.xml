@@ -9,8 +9,8 @@
         >
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:src="@mipmap/ic_launcher"
             android:layout_margin="10dp"
             android:id="@+id/list_dot1image"
@@ -20,10 +20,12 @@
             android:layout_height="wrap_content"
             android:text="五大科技巨头囤积巨额现金，他们予以为何？"
             android:textColor="#000"
-            android:textSize="18dp"
+            android:textSize="14dp"
             android:id="@+id/list_tvrj"
-            android:layout_toRightOf="@id/list_dot1image"
-            />
+
+            android:layout_alignTop="@+id/list_dot1image"
+            android:layout_toRightOf="@+id/list_dot1image"
+            android:layout_toEndOf="@+id/list_dot1image" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

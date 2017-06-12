@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.example.tf.pconline.R;
 import com.example.tf.pconline.domain.Channel;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -67,6 +68,9 @@ public class RJListAdapter extends BaseAdapter{
 
         Channel channel = arrayList.get(position);
         vh.list_tvrj.setText(channel.getName());
+        Picasso.with(context)
+                .load(channel.getImgUrl())
+                .into(vh.list_dot1image);
 
 
 
