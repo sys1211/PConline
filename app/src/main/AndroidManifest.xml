@@ -11,19 +11,27 @@
         android:screenOrientation="portrait"
         android:configChanges="orientation"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activity.WelcomeActivity">
+        <activity android:name=".Activity.WelcomeActivity"
+            android:screenOrientation="portrait"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activity.MainActivity" />
+        <activity android:name=".Activity.MainActivity"
+            android:screenOrientation="portrait"/>
         <activity android:name=".Activity.SearchActivity"
             android:launchMode="singleTop"
+            android:screenOrientation="portrait"
             ></activity>
-        <activity android:name=".Activitys.EnterActivity"/>
-        <activity android:name=".Activitys.DengLu_Activity"/>
+
+        <activity android:name=".Activitys.EnterActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".Activitys.DengLu_Activity"
+            android:screenOrientation="portrait"/>
 
     </application>
 

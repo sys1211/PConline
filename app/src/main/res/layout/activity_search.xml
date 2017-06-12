@@ -11,17 +11,18 @@
         android:layout_height="wrap_content"
         android:background="#25A3EB"
         >
-        <ImageView
-            android:id="@+id/search_back_img"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/app_back_white"
-            android:layout_margin="10dp"
-            />
+        <!--<ImageView-->
+            <!--android:id="@+id/search_back_img"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:src="@drawable/app_back_white"-->
+            <!--android:layout_margin="10dp"-->
+            <!--/>-->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="搜索"
+            android:layout_margin="10dp"
             android:textSize="20sp"
             android:textColor="#fff"
             android:layout_centerVertical="true"
@@ -47,6 +48,7 @@
                 android:entries="@array/spingarr"
                 ></Spinner>
             <EditText
+                android:id="@+id/search_edittext"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:hint="三星QLED电视               "
@@ -68,9 +70,16 @@
         android:layout_height="1dp"
         android:background="#ddd"
         />
-    <WebView
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/search_web"
-        ></WebView>
+        android:id="@+id/search_fl"
+        >
+        <WebView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/search_web"
+            ></WebView>
+    </FrameLayout>
+
 </LinearLayout>

@@ -19,7 +19,9 @@ import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
-
+import com.example.tf.pconline.adapters.ChannelAdapter;
+import com.example.tf.pconline.adapters.InfoViewPagerAdapter;
+import com.example.tf.pconline.adapters.ChannelGridAdapter;
 import com.example.tf.pconline.R;
 import com.example.tf.pconline.domain.Channel;
 import com.example.tf.pconline.domain.NumClick;
@@ -34,12 +36,12 @@ import java.util.ArrayList;
  */
 
 
-public class FragmentInfo extends Fragment implements  com.example.tf.pconline.adapters.ChannelAdapter.onclickListener,View.OnClickListener,AdapterView.OnItemClickListener{
+public class FragmentInfo extends Fragment implements  ChannelAdapter.onclickListener,View.OnClickListener,AdapterView.OnItemClickListener{
     View v;
     private ViewPager infovp;
     private ImageView infodialog;
     private int numClick=0;
-    public com.example.tf.pconline.adapters.InfoViewPagerAdapter infoViewPagerAdapter;
+    public InfoViewPagerAdapter infoViewPagerAdapter;
     public ArrayList<Fragment> fragmentArrayList;
     public ArrayList<String> stringArrayList;
     public ArrayList<Fragment> fragmentArrayList2;
@@ -49,12 +51,12 @@ public class FragmentInfo extends Fragment implements  com.example.tf.pconline.a
     private ArrayList<Channel> channelArrayList2;
     private ArrayList<NumClick> numClickArrayList;
     private  TextView textViewdeletesorting;
-    private com.example.tf.pconline.adapters.ChannelAdapter channelAdapter;
+    private ChannelAdapter channelAdapter;
     //,"平板","DIY外设","智能硬件","无人机","智能家电","软件","网络圈","导购","相机","企业圈","直播","汽车科技","视频", "笔记本"
 
 
 
-    private com.example.tf.pconline.adapters.ChannelGridAdapter channelGridAdapter;
+    private ChannelGridAdapter channelGridAdapter;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -80,11 +82,10 @@ public class FragmentInfo extends Fragment implements  com.example.tf.pconline.a
         stringArrayList2.add("图赏");
         stringArrayList2.add("PCLive");
         stringArrayList2.add("手机");
-        Fragment_ruanjian f1 = new Fragment_ruanjian();
-        Fragment_paihang f2 = new Fragment_paihang();
-        Fragment_zixun f3 = new Fragment_zixun();
-        Fragment_pingce f4 = new Fragment_pingce();
-
+        Fragment__pingban f1 = new Fragment__pingban();
+        Fragment__bijiben f2 = new Fragment__bijiben();
+        Fragment_DIYwaishe f3 = new Fragment_DIYwaishe();
+        Fragment_ruanjian f4 = new Fragment_ruanjian();
         Fragment_tushang f5 = new Fragment_tushang();
         Fragment_Pc f6 = new Fragment_Pc();
         Fragment_shouji f7 = new Fragment_shouji();
@@ -117,7 +118,7 @@ public class FragmentInfo extends Fragment implements  com.example.tf.pconline.a
                 for (int i = 0; i < stringArrayList.size(); i++) {
                     channelArrayList.add(new Channel(null, stringArrayList.get(i)));
                 }
-                channelAdapter = new com.example.tf.pconline.adapters.ChannelAdapter(numClickArrayList, channelArrayList, getActivity(), FragmentInfo.this, recyclerViewdialogadd);
+                channelAdapter = new ChannelAdapter(numClickArrayList, channelArrayList, getActivity(), FragmentInfo.this, recyclerViewdialogadd);
                 textViewdeletesorting.setOnClickListener(FragmentInfo.this);
 
 
@@ -139,14 +140,14 @@ public class FragmentInfo extends Fragment implements  com.example.tf.pconline.a
                 recyclerViewdialogadd.setAdapter(channelAdapter);
 
                 //设置RecyclerView的每一项的点击事件
-                channelAdapter.setRecyclerViewOnItemClickListener(new com.example.tf.pconline.adapters.ChannelAdapter.RecyclerViewOnItemClickListener() {
+                channelAdapter.setRecyclerViewOnItemClickListener(new ChannelAdapter.RecyclerViewOnItemClickListener() {
                     @Override
                     public void onItemClickListener(View view, int position) {
                         Snackbar.make(view, "点击了：" + position, Snackbar.LENGTH_SHORT).show();
                     }
                 });
                 //设置RecyclerView的每一项的长按事件
-                channelAdapter.setOnItemLongClickListener(new com.example.tf.pconline.adapters.ChannelAdapter.RecyclerViewOnItemLongClickListener() {
+                channelAdapter.setOnItemLongClickListener(new ChannelAdapter.RecyclerViewOnItemLongClickListener() {
                     @Override
                     public boolean onItemLongClickListener(View view, int position) {
                         Snackbar.make(view, "长按了：" + position, Snackbar.LENGTH_SHORT).show();
@@ -161,7 +162,7 @@ public class FragmentInfo extends Fragment implements  com.example.tf.pconline.a
                 }
                 CustomGridView gridViewdialogadd = (CustomGridView) view.findViewById(R.id.dialogdelete);
 
-                channelGridAdapter = new com.example.tf.pconline.adapters.ChannelGridAdapter(channelArrayList2, getActivity());
+                channelGridAdapter = new ChannelGridAdapter(channelArrayList2, getActivity());
 
                 gridViewdialogadd.setAdapter(channelGridAdapter);
 
@@ -219,7 +220,7 @@ public class FragmentInfo extends Fragment implements  com.example.tf.pconline.a
         }
 
 
-        infoViewPagerAdapter = new com.example.tf.pconline.adapters.InfoViewPagerAdapter(getChildFragmentManager(), fragmentArrayList, stringArrayList);
+        infoViewPagerAdapter = new InfoViewPagerAdapter(getChildFragmentManager(), fragmentArrayList, stringArrayList);
         infovp.setAdapter(infoViewPagerAdapter);
         infotablayout.setupWithViewPager(infovp);
         //设置可以滑动
