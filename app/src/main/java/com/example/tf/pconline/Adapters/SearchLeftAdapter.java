@@ -1,4 +1,4 @@
-package com.example.tf.pconline.Adapters;
+package com.example.tf.pconline.adapters;
 
 import android.content.Context;
 import android.graphics.Color;

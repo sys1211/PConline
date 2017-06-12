@@ -12,7 +12,7 @@ import android.widget.Button;
 import android.widget.ListView;
 
 import com.example.tf.pconline.Activity.SearchActivity;
-import com.example.tf.pconline.Adapters.SearchLeftAdapter;
+import com.example.tf.pconline.adapters.SearchLeftAdapter;
 import com.example.tf.pconline.Datas.SearchLeftData;
 import com.example.tf.pconline.R;
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
@@ -57,7 +57,7 @@ private SlidingMenu.CanvasTransformer t;
         slidingMenu.setBehindWidth(780);
         slidingMenu.setTouchModeAbove(SlidingMenu.TOUCHMODE_NONE);
 //        slidingMenu.setSlidingEnabled(false);
-        slidingMenu.setTouchModeBehind(SlidingMenu.TOUCHMODE_FULLSCREEN);
+        slidingMenu.setTouchModeBehind(SlidingMenu.TOUCHMODE_NONE);
         slidingMenu.setBehindScrollScale(1);
         slidingMenu.setShadowWidthRes(R.dimen.shadow_width);
 //        if(!slidingMenu.isMenuShowing()){
