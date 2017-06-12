@@ -37,5 +37,4 @@ dependencies {
     compile 'co.roverlabs:picasso:2.5.2'
     compile 'com.jude:rollviewpager:1.2.9'
 
-
 }

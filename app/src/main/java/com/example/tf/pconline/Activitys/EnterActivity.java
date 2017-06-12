@@ -4,10 +4,13 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.tf.pconline.R;
@@ -16,18 +19,23 @@ import com.example.tf.pconline.R;
  * Created by lenovo on 2017/6/7.
  */
 
-public class EnterActivity extends Activity implements View.OnClickListener {
+public class EnterActivity extends FragmentActivity implements View.OnClickListener,EnterDialog.LoginInputListener {
+
     private RelativeLayout enteritem1,enteritem2,enteritem3,enteritem4,enteritem5,enteritem6,enteritem7,enteritem8;
     private CheckBox gesture,push;
     private ImageView enterfush;
+    private TextView enterfonts,enterwifi,enterline,clearcache;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.enteractivity);
         initView();
     }
 
     private void initView() {
+
         enteritem1 = (RelativeLayout) findViewById(R.id.enteritem1);
         enteritem2 = (RelativeLayout) findViewById(R.id.enteritem2);
         enteritem3 = (RelativeLayout) findViewById(R.id.enteritem3);
@@ -39,6 +47,10 @@ public class EnterActivity extends Activity implements View.OnClickListener {
         gesture = (CheckBox) findViewById(R.id.gesture);
         push = (CheckBox) findViewById(R.id.push);
         enterfush = (ImageView) findViewById(R.id.enterfush);
+        enterfonts = (TextView) findViewById(R.id.enterfonts);
+        enterwifi = (TextView) findViewById(R.id.enterwifi);
+        enterline = (TextView) findViewById(R.id.enterline);
+        clearcache = (TextView) findViewById(R.id.clearcache);
 
         enteritem1.setOnClickListener(this);
         enteritem2.setOnClickListener(this);
@@ -51,44 +63,100 @@ public class EnterActivity extends Activity implements View.OnClickListener {
         gesture.setOnClickListener(this);
         push.setOnClickListener(this);
         enterfush.setOnClickListener(this);
+
     }
 
     @Override
     public void onClick(View v) {
+
         switch (v.getId()) {
+
             case R.id.enteritem1:
-                Toast.makeText(this,"绑定分享平台",Toast.LENGTH_LONG).show();
+                Intent intent1 = new Intent(this, DengLu_Activity.class);
+                startActivity(intent1);
                 break;
+
             case R.id.enteritem2:
-                Toast.makeText(this,"文章字号大小",Toast.LENGTH_LONG).show();
+                Intent intent2 = new Intent(this, Fonts.class);
+                intent2.putExtra("name",enterfonts.getText());
+                startActivityForResult(intent2, 1);
                 break;
+
             case R.id.enteritem3:
-                Toast.makeText(this,"非wifi下显示",Toast.LENGTH_LONG).show();
+                Intent intent3 = new Intent(this, Wifi.class);
+                intent3.putExtra("name",enterwifi.getText());
+                startActivityForResult(intent3, 2);
                 break;
+
             case R.id.enteritem4:
-                Toast.makeText(this,"离线阅读管理",Toast.LENGTH_LONG).show();
+                Intent intent4 = new Intent(this, Line.class);
+                intent4.putExtra("name",enterline.getText());
+                startActivityForResult(intent4, 3);
                 break;
+
             case R.id.enteritem5:
-                Toast.makeText(this,"推荐给好友",Toast.LENGTH_LONG).show();
+                Intent intent5 = new Intent(this, DengLu_Activity.class);
+                startActivity(intent5);
                 break;
+
             case R.id.enteritem6:
-                Toast.makeText(this,"零流量分享",Toast.LENGTH_LONG).show();
+                Intent intent6 = new Intent(this, Share.class);
+                startActivity(intent6);
                 break;
+
             case R.id.enteritem7:
-                Toast.makeText(this,"关于我们",Toast.LENGTH_LONG).show();
+                Intent intent7 = new Intent(this, AboutUs.class);
+                startActivity(intent7);
                 break;
+
             case R.id.enteritem8:
-                Toast.makeText(this,"清除缓存",Toast.LENGTH_LONG).show();
+                EnterDialog dlg=new EnterDialog();
+                dlg.show(getFragmentManager(),"");
                 break;
+
             case R.id.gesture:
-                Toast.makeText(this,"手势滑动",Toast.LENGTH_LONG).show();
                 break;
+
             case R.id.push:
-                Toast.makeText(this,"推送开关",Toast.LENGTH_LONG).show();
                 break;
+
             case R.id.enterfush:
                 finish();
                 break;
+
         }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        switch (requestCode) {
+
+            case 1:
+                if (resultCode == 200) {
+                    enterfonts.setText(data.getStringExtra("text"));
+                }
+                break;
+
+            case 2:
+                if (resultCode == 300) {
+                    enterwifi.setText(data.getStringExtra("text"));
+                }
+                break;
+
+            case 3:
+                if (resultCode == 400) {
+                    enterline.setText(data.getStringExtra("text"));
+                }
+                break;
+
+        }
+    }
+
+    @Override
+    public void onLoginInputComplete(String username)
+    {
+        clearcache.setText(username);
     }
 }

@@ -104,6 +104,7 @@
                     />
 
                 <TextView
+                    android:id="@+id/enterfonts"
                     android:layout_toLeftOf="@id/enteritemimv1"
                     android:layout_marginRight="15dp"
                     android:layout_width="wrap_content"
@@ -145,6 +146,7 @@
                     />
 
                 <TextView
+                    android:id="@+id/enterwifi"
                     android:layout_toLeftOf="@id/enteritemimv2"
                     android:layout_marginRight="15dp"
                     android:layout_width="wrap_content"
@@ -186,6 +188,7 @@
                     />
 
                 <TextView
+                    android:id="@+id/enterline"
                     android:layout_toLeftOf="@id/enteritemimv3"
                     android:layout_marginRight="15dp"
                     android:layout_width="wrap_content"
